@@ -1,1030 +1,336 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ENEM 2026 | Seu Futuro Começa Aqui</title>
+<title>Consciência Negra | História, Cultura e Respeito</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
+:root{
+ --bg:#100d0b;--panel:#1d1713;--panel2:#281d17;--text:#fff6eb;--muted:#d0bba7;
+ --gold:#f4b942;--orange:#e97832;--red:#c94c35;--green:#70a879;--line:#60402b;
+ --shadow:0 18px 55px #0008
 }
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse at 15% 0%,#542713 0,transparent 38%),radial-gradient(ellipse at 95% 28%,#3c2514 0,transparent 32%),var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.6}
+a{color:inherit;text-decoration:none}
+header{position:sticky;top:0;z-index:20;background:#100d0bf0;backdrop-filter:blur(14px);border-bottom:1px solid #65452d}
+.nav{max-width:1200px;margin:auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-weight:900;letter-spacing:.5px;color:var(--gold);font-size:1.08rem}
+.links{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.links a{font-size:.9rem;color:var(--muted)}
+.links a:hover{color:var(--gold)}
+button{font:inherit;cursor:pointer}
+.theme{border:1px solid var(--gold);color:var(--gold);background:transparent;padding:8px 13px;border-radius:20px}
+.hero{max-width:1200px;margin:34px auto 25px;padding:38px 22px;display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center}
+.kicker{color:var(--gold);font-weight:800;letter-spacing:2px;text-transform:uppercase;font-size:.8rem}
+h1{font-size:clamp(2.6rem,6vw,5.4rem);line-height:.99;margin:14px 0 20px;letter-spacing:-2px}
+h1 span{color:var(--gold)}
+.lead{color:var(--muted);font-size:1.12rem;max-width:650px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
+.btn{display:inline-block;border:0;border-radius:12px;padding:13px 18px;font-weight:800;background:linear-gradient(120deg,var(--gold),var(--orange));color:#211207;box-shadow:0 8px 25px #e9783240}
+.btn.secondary{background:transparent;color:var(--text);border:1px solid var(--line);box-shadow:none}
+.hero-art{min-height:320px;border:1px solid #8c592e;border-radius:28px;background:linear-gradient(145deg,#542b17,#21150f 55%,#75421e);position:relative;overflow:hidden;display:grid;place-items:center;box-shadow:var(--shadow)}
+.sun{width:210px;height:210px;border-radius:50%;background:linear-gradient(135deg,#f8d477,#e97832);box-shadow:0 0 80px #e9783277;position:absolute;top:40px;right:55px}
+.art-text{position:relative;text-align:center;padding:25px;z-index:1}
+.art-text .big{font-size:5.8rem;line-height:1}
+.art-text h2{font-size:1.65rem;margin:8px 0;color:#fff}
+.art-text p{color:#ffe6c3;margin:0}
+.section{max-width:1150px;margin:25px auto;padding:28px 22px}
+.section-title{font-size:clamp(1.8rem,4vw,2.7rem);margin:0 0 8px}
+.section-sub{color:var(--muted);margin:0 0 23px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.card{background:linear-gradient(145deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:18px;padding:21px;box-shadow:var(--shadow)}
+.card .symbol{font-size:2rem}
+.card h3{margin:9px 0 6px;color:var(--gold)}
+.card p{margin:0;color:var(--muted)}
+.timeline{border-left:3px solid var(--orange);padding-left:22px;display:grid;gap:18px}
+.event{position:relative;background:var(--panel);border:1px solid var(--line);padding:16px 18px;border-radius:14px}
+.event:before{content:"";position:absolute;left:-31px;top:22px;width:14px;height:14px;background:var(--gold);border-radius:50%;box-shadow:0 0 0 5px #e9783228}
+.event b{color:var(--gold)}
+.people{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.person{overflow:hidden;padding:0}
+.person-top{height:105px;background:linear-gradient(120deg,#8c4c20,#d68a36);display:grid;place-items:center;font-size:3rem}
+.person-body{padding:18px}
+.person-body h3{color:var(--gold);margin:0 0 5px}
+.person-body p{color:var(--muted);margin:0}
+.callout{border-left:5px solid var(--gold);background:#342316;padding:20px 23px;border-radius:0 16px 16px 0;color:#ffe9ca}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}
+.tab{border:1px solid var(--line);background:var(--panel);color:var(--text);padding:9px 14px;border-radius:20px}
+.tab.active{background:var(--gold);color:#211207;border-color:var(--gold);font-weight:bold}
+.tab-content{min-height:125px}
+.quiz{max-width:760px}
+.q-count{color:var(--gold);font-weight:bold;font-size:.85rem;letter-spacing:1px}
+.question{font-size:1.25rem;font-weight:bold;margin:10px 0 16px}
+.answers{display:grid;gap:9px}
+.answer{padding:12px 14px;text-align:left;background:#302219;border:1px solid #65452d;color:var(--text);border-radius:10px}
+.answer:hover{border-color:var(--gold)}
+.answer:disabled{cursor:default;opacity:.85}
+.feedback{min-height:30px;margin:13px 0;color:#f4d39c;font-weight:bold}
+.progress{height:9px;background:#493222;border-radius:20px;overflow:hidden;margin-top:16px}
+.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--orange),var(--gold));transition:width .3s}
+footer{border-top:1px solid var(--line);padding:28px 20px;text-align:center;color:var(--muted);margin-top:45px}
+.small{font-size:.88rem;color:var(--muted)}
+.light{--bg:#fffaf3;--panel:#ffffff;--panel2:#fff3e2;--text:#21140d;--muted:#493426;--gold:#8a4b00;--orange:#a94712;--line:#c49b72;--shadow:0 12px 35px #75421e18}
+.light header{background:#fffaf3ed}
+.light .answer{background:#fff2df;color:#2b1a10}
+.light .callout{background:#f7e4c9;color:#553619}
+@media(max-width:850px){.hero{grid-template-columns:1fr}.grid,.people{grid-template-columns:repeat(2,1fr)}.links{gap:10px}}
+@media(max-width:560px){.nav{align-items:flex-start;flex-direction:column}.links{font-size:.8rem}.hero{padding-top:20px}.grid,.people{grid-template-columns:1fr}.hero-art{min-height:250px}.sun{width:160px;height:160px}}
 
-body {
-    font-family: Arial, sans-serif;
-    background: #080f20;
-    color: white;
+/* Melhorias de contraste no tema claro */
+.light body{
+ background:radial-gradient(ellipse at 12% 0%,#f5dfc5 0,transparent 38%),
+            radial-gradient(ellipse at 95% 28%,#f8e8d5 0,transparent 34%),#fffaf3;
+ color:#21140d
 }
-
-/* INTRODUÇÃO */
-.intro-screen {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    background:
-        radial-gradient(circle at 50% 45%, #103b70, transparent 55%),
-        linear-gradient(135deg, #020817, #071a36, #020817);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    overflow: hidden;
-    transition: opacity 1s, visibility 1s;
-}
-
-.intro-screen::before {
-    content: "✦";
-    position: absolute;
-    top: 12%;
-    left: 12%;
-    color: #28baff;
-    font-size: 65px;
-    animation: flutuar 3s infinite ease-in-out;
-}
-
-.intro-screen::after {
-    content: "✎";
-    position: absolute;
-    bottom: 12%;
-    right: 12%;
-    color: #28baff;
-    font-size: 75px;
-    animation: flutuar 3s infinite ease-in-out;
-}
-
-.intro-content {
-    position: relative;
-    z-index: 2;
-    width: 90%;
-    max-width: 750px;
-    animation: aparecer 1.5s ease;
-}
-
-.intro-tag {
-    color: #43caff;
-    letter-spacing: 4px;
-    font-weight: bold;
-}
-
-.intro-content h1 {
-    font-size: clamp(65px, 13vw, 120px);
-    color: white;
-    text-shadow: 0 0 15px #008cff, 0 0 45px #006eff;
-    margin: 20px 0;
-    animation: brilho 2s infinite alternate;
-}
-
-.intro-content h2 {
-    color: white;
-    font-size: clamp(20px, 4vw, 32px);
-}
-
-.intro-content p {
-    color: #b8d9ff;
-    margin: 20px 0 30px;
-    line-height: 1.6;
-}
-
-.intro-btn {
-    background: transparent;
-    border: 2px solid #16aaff;
-    color: white;
-    padding: 17px 35px;
-    border-radius: 50px;
-    font-size: 17px;
-    box-shadow: 0 0 20px #008cff;
-    cursor: pointer;
-}
-
-.intro-btn:hover {
-    background: #008cff;
-}
-
-.intro-bar {
-    width: 230px;
-    height: 6px;
-    background: #173455;
-    margin: 35px auto 10px;
-    border-radius: 20px;
-    overflow: hidden;
-}
-
-.intro-progress {
-    height: 100%;
-    width: 0;
-    background: #20baff;
-    box-shadow: 0 0 15px #00aaff;
-    animation: carregar 2.5s forwards;
-}
-
-.intro-screen.saindo {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-}
-
-body:not(.started) > header,
-body:not(.started) > main,
-body:not(.started) > footer {
-    visibility: hidden;
-}
-
-@keyframes carregar {
-    to { width: 100%; }
-}
-
-@keyframes aparecer {
-    from { opacity: 0; transform: translateY(35px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes brilho {
-    from { text-shadow: 0 0 15px #008cff; }
-    to { text-shadow: 0 0 40px #00aaff, 0 0 70px #006eff; }
-}
-
-@keyframes flutuar {
-    50% { transform: translateY(-20px) rotate(10deg); }
-}
-
-/* CABEÇALHO */
-header {
-    background: #101d38;
-    padding: 20px 8%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    border-bottom: 1px solid #243b65;
-}
-
-.logo {
-    font-size: 25px;
-    font-weight: bold;
-    color: #42d9ff;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 10px;
-    transition: .3s;
-}
-
-nav a:hover {
-    color: #42d9ff;
-}
-
-button {
-    border: none;
-    padding: 12px 18px;
-    border-radius: 9px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: .3s;
-    margin: 4px;
-}
-
-button:hover {
-    transform: translateY(-3px);
-    filter: brightness(1.15);
-}
-
-.mochila {
-    background: #00bfff;
-    color: #061326;
-}
-
-.download {
-    background: #20c997;
-    color: #061326;
-}
-
-.salvar {
-    background: #ffc857;
-    color: #172033;
-}
-
-/* PÁGINA PRINCIPAL */
-.hero {
-    min-height: 520px;
-    padding: 100px 10%;
-    display: flex;
-    align-items: center;
-    background:
-    radial-gradient(circle at 80% 30%, #164c82 0%, transparent 35%),
-    linear-gradient(120deg, #081326, #10294b);
-}
-
-.hero-content {
-    max-width: 700px;
-}
-
-.hero h1 {
-    font-size: clamp(35px, 6vw, 65px);
-    margin-bottom: 20px;
-}
-
-.hero h1 span {
-    color: #42d9ff;
-}
-
-.hero p {
-    color: #c3d4e8;
-    font-size: 18px;
-    line-height: 1.7;
-    margin-bottom: 25px;
-}
-
-section {
-    padding: 75px 9%;
-}
-
-h2 {
-    font-size: 32px;
-    margin-bottom: 20px;
-    color: #42d9ff;
-}
-
-.intro-text {
-    text-align: center;
-    max-width: 850px;
-    margin: auto;
-    line-height: 1.8;
-    color: #c6d2e4;
-}
-
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 22px;
-    margin-top: 35px;
-}
-
-.card {
-    background: #132340;
-    padding: 28px;
-    border-radius: 15px;
-    border: 1px solid #28436d;
-    transition: .3s;
-}
-
-.card:hover {
-    transform: translateY(-7px);
-    border-color: #42d9ff;
-}
-
-.card h3 {
-    color: #42d9ff;
-    margin-bottom: 12px;
-}
-
-.card p {
-    color: #c4d0e1;
-    line-height: 1.6;
-}
-
-.dicas {
-    background: #101d35;
-}
-
-.cta {
-    text-align: center;
-    background: linear-gradient(120deg, #123c68, #10203d);
-    border-radius: 20px;
-    padding: 45px 20px;
-}
-
-.cta p {
-    margin: 15px 0 25px;
-    color: #cbd9e9;
-}
-
-/* CENTRAL DO PROJETO */
-.central {
-    background: #09162b;
-    padding: 70px 8%;
-}
-
-.central-intro {
-    text-align: center;
-    max-width: 800px;
-    margin: auto;
-    line-height: 1.7;
-    color: #cbd9e9;
-}
-
-.central-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 20px;
-    margin-top: 30px;
-}
-
-.central-card {
-    background: #132744;
-    border: 1px solid #28517c;
-    border-radius: 15px;
-    padding: 25px;
-    line-height: 1.7;
-    margin-top: 15px;
-}
-
-.central-card h3 {
-    color: #42d9ff;
-    margin-bottom: 12px;
-}
-
-.central-card p,
-.central-card li {
-    color: #d0ddec;
-}
-
-.central-card ul {
-    padding-left: 20px;
-}
-
-.central-card a {
-    color: #42d9ff;
-    display: inline-block;
-    margin: 5px 0 15px;
-}
-
-.qr-area {
-    background: #102b4d;
-    border: 1px solid #42d9ff;
-    border-radius: 20px;
-    padding: 35px;
-    text-align: center;
-    margin-top: 35px;
-    overflow-wrap: anywhere;
-}
-
-.qr-area img {
-    width: 210px;
-    height: 210px;
-    object-fit: contain;
-    background: white;
-    padding: 10px;
-    border-radius: 12px;
-    margin: 20px auto;
-    display: block;
-}
-
-.pergunta {
-    background: #142943;
-    padding: 20px;
-    border-radius: 12px;
-    margin: 15px 0;
-    line-height: 1.6;
-}
-
-.pergunta strong {
-    color: #42d9ff;
-}
-
-.creditos {
-    text-align: center;
-    padding: 35px;
-    color: #a9bed6;
-}
-
-footer {
-    text-align: center;
-    padding: 30px;
-    color: #91a4bf;
-    background: #050b17;
-    line-height: 1.8;
-}
-
-/* RESPONSIVIDADE */
-@media(max-width: 650px) {
-    header {
-        justify-content: center;
-        text-align: center;
-    }
-
-    nav {
-        width: 100%;
-    }
-
-    nav a {
-        display: inline-block;
-        margin: 6px;
-    }
-
-    .hero {
-        padding: 70px 7%;
-    }
-
-    .qr-area {
-        padding: 20px;
-    }
-}
-
-/* IMPRESSÃO */
-@media print {
-    .intro-screen,
-    header,
-    footer,
-    button {
-        display: none !important;
-    }
-
-    body {
-        background: white;
-        color: black;
-    }
-
-    .hero, section, .central {
-        background: white !important;
-        color: black;
-    }
-
-    h1, h2, h3, p, li, a, strong {
-        color: black !important;
-    }
-
-    .card, .central-card, .pergunta, .qr-area {
-        background: white !important;
-        color: black;
-        border: 1px solid #888;
-        break-inside: avoid;
-    }
-
-    .card p, .central-card p, .central-card li {
-        color: black;
-    }
-}
+.light .lead,.light .section-sub,.light .card p,.light .person-body p,
+.light .links a,.light .small,.light .event,.light footer{color:#493426}
+.light h1,.light .section-title,.light .question,.light .card h3,
+.light .person-body h3{color:#2b190e}
+.light .card,.light .event,.light .quiz{background:#fffdf9;border-color:#c49b72}
+.light .answer{background:#fff3e3;color:#2b190e;border-color:#b98b5e}
+.light .answer:hover{border-color:#8a4b00;background:#ffe7c8}
+.light .callout{background:#f3dfc5;color:#402512;border-left-color:#8a4b00}
+.light .theme{color:#754000;border-color:#8a4b00}
+.light .logo,.light .kicker{color:#754000}
+.light .tab{background:#fffdf9;color:#352114;border-color:#b98b5e}
+.light .tab.active{background:#8a4b00;color:#fff}
+.light .progress{background:#e6d2bc}
+.light footer{border-color:#c49b72}
 </style>
 </head>
 
 <body>
-
-<!-- INTRODUÇÃO -->
-<div class="intro-screen" id="intro">
-    <div class="intro-content">
-
-        <div class="intro-tag">
-            EDUCAÇÃO • CONHECIMENTO • FUTURO
-        </div>
-
-        <h1>ENEM</h1>
-
-        <h2>Seu futuro começa aqui...</h2>
-
-        <p>
-            Mais que uma prova, uma oportunidade
-            de transformar seus sonhos em realidade!
-        </p>
-
-        <button class="intro-btn" onclick="entrarSite()">
-            CLIQUE PARA CONTINUAR →
-        </button>
-
-        <div class="intro-bar">
-            <div class="intro-progress"></div>
-        </div>
-
-        <p>PREPARANDO SEU FUTURO...</p>
-
-        <div style="font-size:35px; margin-top:20px">
-            📚 ✏️ 🎓 📝
-        </div>
-
-    </div>
-</div>
-
-<!-- CABEÇALHO -->
 <header>
-    <div class="logo">ENEM 2026</div>
-
-    <nav>
-        <a href="#inicio">Início</a>
-        <a href="#importancia">Importância</a>
-        <a href="#oportunidades">Oportunidades</a>
-        <a href="#dicas">Dicas</a>
-        <a href="#projeto">Projeto</a>
-    </nav>
-
-    <button class="mochila" onclick="irMochila()">
-        🎒 Minha Mochila
-    </button>
+ <nav class="nav">
+  <a class="logo" href="#inicio">✊🏾 CONSCIÊNCIA NEGRA</a>
+  <div class="links">
+   <a href="#significado">Significado</a>
+   <a href="#historia">História</a>
+   <a href="#personalidades">Personalidades</a>
+   <a href="#cultura">Cultura</a>
+   <a href="#quiz">Quiz</a>
+   <button class="theme" onclick="document.body.classList.toggle('light')">☀️ Tema</button>
+  </div>
+ </nav>
 </header>
 
-<main>
-
-<!-- INÍCIO -->
-<div class="hero" id="inicio">
-    <div class="hero-content">
-
-        <h1>
-            Seu futuro começa com uma
-            <span>oportunidade.</span>
-        </h1>
-
-        <p>
-            O ENEM é muito mais que uma prova.
-            É uma oportunidade de conquistar seus objetivos,
-            entrar na universidade e construir um futuro melhor.
-        </p>
-
-        <button class="download" onclick="baixarSite()">
-            ⬇ Baixar este site
-        </button>
-
-        <button class="salvar" onclick="salvarConteudo()">
-            ★ Salvar conteúdo
-        </button>
-
-        <button class="mochila" onclick="irMochila()">
-            🎒 Minha Mochila
-        </button>
-
-    </div>
-</div>
-
-<!-- IMPORTÂNCIA -->
-<section id="importancia">
-    <div class="intro-text">
-        <h2>Qual é a importância do ENEM?</h2>
-
-        <p>
-            O Exame Nacional do Ensino Médio (ENEM) avalia
-            os conhecimentos dos estudantes e permite que
-            eles utilizem suas notas para buscar vagas
-            em universidades. Também pode ajudar no acesso
-            a bolsas e programas de financiamento estudantil.
-            Por isso, é uma etapa importante para quem deseja
-            continuar os estudos.
-        </p>
-    </div>
+<main id="inicio">
+<section class="hero">
+ <div>
+  <div class="kicker">20 de novembro • História • Identidade • Respeito</div>
+  <h1>Consciência<br><span>Negra</span></h1>
+  <p class="lead">Conhecer a história da população negra é reconhecer suas contribuições, valorizar culturas e lutar por uma sociedade com respeito, igualdade e oportunidades para todos.</p>
+  <div class="actions">
+   <a class="btn" href="#significado">Explorar o tema ↓</a>
+   <a class="btn secondary" href="#quiz">Testar conhecimentos</a>
+  </div>
+ </div>
+ <div class="hero-art" aria-label="Arte simbólica em tons quentes sobre identidade e valorização">
+  <div class="sun"></div>
+  <div class="art-text">
+   <div class="big">✊🏾</div>
+   <h2>Memória, resistência<br>e valorização</h2>
+   <p>Uma história que faz parte do Brasil.</p>
+  </div>
+ </div>
 </section>
 
-<!-- OPORTUNIDADES -->
-<section id="oportunidades">
-    <h2>🎓 Oportunidades que o ENEM oferece</h2>
-
-    <div class="cards">
-
-        <div class="card">
-            <h3>🏫 SISU</h3>
-            <p>
-                Utiliza a nota do ENEM para selecionar
-                estudantes para vagas em universidades
-                e instituições públicas participantes.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>📚 PROUNI</h3>
-            <p>
-                Oferece bolsas de estudo integrais ou parciais
-                em instituições particulares, conforme os critérios.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>💻 FIES</h3>
-            <p>
-                Programa de financiamento estudantil
-                para cursos em instituições particulares,
-                conforme as regras do programa.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>🌎 Futuro</h3>
-            <p>
-                A nota também pode ser aceita por universidades
-                portuguesas participantes de acordos com o INEP.
-            </p>
-        </div>
-
-    </div>
+<section class="section" id="significado">
+ <h2 class="section-title">O que é Consciência Negra?</h2>
+ <p class="section-sub">Um convite para aprender, refletir e agir durante todo o ano.</p>
+ <div class="grid">
+  <article class="card">
+   <div class="symbol">📚</div>
+   <h3>Conhecer a história</h3>
+   <p>Estudar a trajetória da população negra, a escravidão, as lutas por liberdade e a participação na construção do Brasil.</p>
+  </article>
+  <article class="card">
+   <div class="symbol">🌍</div>
+   <h3>Valorizar culturas</h3>
+   <p>Reconhecer a influência africana e afro-brasileira na música, culinária, língua, arte, ciência, religião e nas tradições.</p>
+  </article>
+  <article class="card">
+   <div class="symbol">🤝</div>
+   <h3>Combater o racismo</h3>
+   <p>Identificar atitudes preconceituosas, respeitar as diferenças e contribuir para ambientes mais justos e acolhedores.</p>
+  </article>
+ </div>
 </section>
 
-<!-- DICAS -->
-<section class="dicas" id="dicas">
-    <h2>📖 Como se preparar para o ENEM?</h2>
-
-    <div class="cards">
-
-        <div class="card">
-            <h3>01. Organização</h3>
-            <p>
-                Monte um cronograma e organize
-                seus horários de estudo.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>02. Redação</h3>
-            <p>
-                Pratique a escrita e desenvolva
-                seus argumentos.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>03. Exercícios</h3>
-            <p>
-                Resolva questões de provas anteriores.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>04. Revisão</h3>
-            <p>
-                Revise os conteúdos e acompanhe
-                seu aprendizado.
-            </p>
-        </div>
-
-    </div>
+<section class="section" id="historia">
+ <h2 class="section-title">Uma história de luta e resistência</h2>
+ <p class="section-sub">Alguns marcos importantes para compreender o tema.</p>
+ <div class="timeline">
+  <div class="event"><b>Período colonial</b><br>Milhões de africanos foram trazidos à força para o Brasil e submetidos à escravização. Mesmo diante da violência, preservaram saberes, culturas e formas de resistência.</div>
+  <div class="event"><b>Quilombos</b><br>Comunidades formadas por pessoas que resistiam à escravidão e buscavam liberdade. Palmares tornou-se um dos quilombos mais conhecidos.</div>
+  <div class="event"><b>1695 — Zumbi dos Palmares</b><br>Zumbi, uma das lideranças de Palmares, foi morto em 20 de novembro de 1695. A data passou a simbolizar a resistência negra.</div>
+  <div class="event"><b>1888 — Abolição</b><br>A Lei Áurea declarou extinta a escravidão legal no Brasil, mas não garantiu reparação, igualdade ou condições dignas para a população liberta.</div>
+  <div class="event"><b>20 de novembro</b><br>A data é lembrada como Dia da Consciência Negra. A Lei 14.759/2023 tornou o dia feriado nacional.</div>
+ </div>
 </section>
 
-<!-- MENSAGEM FINAL -->
-<section>
-    <div class="cta">
-
-        <h2>O seu esforço de hoje constrói o amanhã!</h2>
-
-        <p>
-            Acredite no seu potencial.
-            Cada aprendizado é um passo em direção aos seus sonhos.
-        </p>
-
-        <button class="mochila" onclick="irMochila()">
-            🎒 Acessar minha mochila
-        </button>
-
-    </div>
+<section class="section" id="personalidades">
+ <h2 class="section-title">Personalidades negras que marcaram a história</h2>
+ <p class="section-sub">Pessoas que contribuíram para a literatura, ciência, educação e luta por direitos.</p>
+ <div class="people">
+  <article class="card person">
+   <div class="person-top">✊🏾</div>
+   <div class="person-body">
+    <h3>Zumbi dos Palmares</h3>
+    <p>Liderança do Quilombo dos Palmares e símbolo da resistência contra a escravidão no Brasil.</p>
+   </div>
+  </article>
+  <article class="card person">
+   <div class="person-top">🌿</div>
+   <div class="person-body">
+    <h3>Dandara dos Palmares</h3>
+    <p>Figura histórica ligada à resistência de Palmares e à luta pela liberdade.</p>
+   </div>
+  </article>
+  <article class="card person">
+   <div class="person-top">📖</div>
+   <div class="person-body">
+    <h3>Carolina Maria de Jesus</h3>
+    <p>Escritora brasileira conhecida pelo livro <i>Quarto de Despejo</i>, que registra sua vivência na favela do Canindé.</p>
+   </div>
+  </article>
+  <article class="card person">
+   <div class="person-top">🔬</div>
+   <div class="person-body">
+    <h3>Sônia Guimarães</h3>
+    <p>Física brasileira, professora e pesquisadora, reconhecida por sua atuação na área de ciência e tecnologia.</p>
+   </div>
+  </article>
+  <article class="card person">
+   <div class="person-top">🎓</div>
+   <div class="person-body">
+    <h3>Antonieta de Barros</h3>
+    <p>Educadora, jornalista e primeira mulher negra eleita deputada estadual no Brasil.</p>
+   </div>
+  </article>
+  <article class="card person">
+   <div class="person-top">🖋️</div>
+   <div class="person-body">
+    <h3>Conceição Evaristo</h3>
+    <p>Escritora brasileira cuja obra aborda memória, identidade, desigualdade e experiências da população negra.</p>
+   </div>
+  </article>
+ </div>
 </section>
 
-<!-- CENTRAL DO PROJETO -->
-<section class="central" id="projeto">
-
-    <div class="central-intro">
-        <h2>📚 Central do Projeto ENEM</h2>
-
-        <p>
-            Conheça o objetivo, as tecnologias, as funcionalidades
-            e a importância deste projeto educacional.
-        </p>
-    </div>
-
-    <!-- QR CODE -->
-    <div class="qr-area">
-
-        <h2>📱 Acesse pelo QR Code</h2>
-
-        <p>
-            Aponte a câmera do celular para o código
-            e conheça o projeto.
-        </p>
-
-        <img id="qrCode" alt="QR Code para acessar o site">
-
-        <p id="enderecoSite">Carregando endereço...</p>
-
-        <button class="download" onclick="baixarQR()">
-            ⬇ Baixar QR Code
-        </button>
-
-    </div>
-
-    <!-- INFORMAÇÕES DO PROJETO -->
-    <div class="central-grid">
-
-        <div class="central-card">
-            <h3>🎯 Objetivo</h3>
-            <p>
-                Desenvolver um site educativo para informar
-                os estudantes sobre a importância do ENEM,
-                suas oportunidades e formas de preparação.
-            </p>
-        </div>
-
-        <div class="central-card">
-            <h3>💡 Justificativa</h3>
-            <p>
-                Muitos estudantes têm dúvidas sobre o ENEM.
-                O projeto reúne informações de forma simples,
-                organizada e acessível.
-            </p>
-        </div>
-
-        <div class="central-card">
-            <h3>👥 Público-alvo</h3>
-            <p>
-                Estudantes do Ensino Médio e pessoas interessadas
-                em ingressar no ensino superior.
-            </p>
-        </div>
-
-        <div class="central-card">
-            <h3>💻 Tecnologias</h3>
-            <ul>
-                <li>HTML: estrutura do site.</li>
-                <li>CSS: aparência e design.</li>
-                <li>JavaScript: interações e funções.</li>
-                <li>GitHub Pages: publicação online.</li>
-            </ul>
-        </div>
-
-        <div class="central-card">
-            <h3>⚙️ Funcionalidades</h3>
-            <ul>
-                <li>Tela de introdução animada.</li>
-                <li>Informações sobre o ENEM.</li>
-                <li>Botão de download.</li>
-                <li>Salvamento de conteúdo.</li>
-                <li>QR Code de acesso.</li>
-                <li>Link para Minha Mochila.</li>
-                <li>Impressão da apresentação.</li>
-            </ul>
-        </div>
-
-        <div class="central-card">
-            <h3>🌎 Benefícios</h3>
-            <p>
-                Facilita o acesso à informação, incentiva os estudos
-                e ajuda os estudantes a conhecerem oportunidades
-                de ingresso no ensino superior.
-            </p>
-        </div>
-
-    </div>
-
-    <!-- PERGUNTAS DO PROFESSOR -->
-    <h2 style="margin-top:55px">
-        🎓 Preparação para apresentar ao professor
-    </h2>
-
-    <div class="pergunta">
-        <strong>1. Qual é o objetivo do site?</strong>
-        <p>
-            Informar os estudantes sobre o ENEM e mostrar
-            as oportunidades que ele oferece.
-        </p>
-    </div>
-
-    <div class="pergunta">
-        <strong>2. Por que o ENEM é importante?</strong>
-        <p>
-            Porque permite concorrer a vagas no ensino superior
-            e participar de programas educacionais.
-        </p>
-    </div>
-
-    <div class="pergunta">
-        <strong>3. O que é HTML?</strong>
-        <p>
-            É a linguagem utilizada para estruturar
-            o conteúdo de uma página.
-        </p>
-    </div>
-
-    <div class="pergunta">
-        <strong>4. Para que serve o CSS?</strong>
-        <p>
-            É utilizado para personalizar cores, tamanhos,
-            layouts e animações.
-        </p>
-    </div>
-
-    <div class="pergunta">
-        <strong>5. Para que serve JavaScript?</strong>
-        <p>
-            Permite criar interações, botões e funcionalidades
-            no site.
-        </p>
-    </div>
-
-    <div class="pergunta">
-        <strong>6. O que é GitHub Pages?</strong>
-        <p>
-            É um serviço que permite publicar sites
-            diretamente de um repositório do GitHub.
-        </p>
-    </div>
-
-    <div class="pergunta">
-        <strong>7. O que é um QR Code?</strong>
-        <p>
-            É um código que pode ser escaneado pela câmera
-            do celular para acessar um endereço ou informação.
-        </p>
-    </div>
-
-    <div class="pergunta">
-        <strong>8. Qual foi a maior contribuição do projeto?</strong>
-        <p>
-            Reunir informações importantes sobre o ENEM
-            em um único lugar, facilitando o acesso dos estudantes.
-        </p>
-    </div>
-
-    <div class="pergunta">
-        <strong>9. Por que utilizar JavaScript no projeto?</strong>
-        <p>
-            Para fazer os botões funcionarem, gerar o QR Code,
-            baixar arquivos e criar interações.
-        </p>
-    </div>
-
-    <div class="pergunta">
-        <strong>10. Como o site pode ajudar um estudante?</strong>
-        <p>
-            Apresentando informações, oportunidades e dicas
-            de preparação para o exame.
-        </p>
-    </div>
-
-    <!-- REFERÊNCIAS -->
-    <h2 style="margin-top:55px">🔎 Fontes de pesquisa</h2>
-
-    <div class="central-card">
-        <h3>INEP — ENEM</h3>
-        <p>Informações oficiais sobre o exame.</p>
-        <a href="https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem" target="_blank">
-            Acessar INEP
-        </a>
-
-        <h3>Ministério da Educação</h3>
-        <p>Informações sobre programas de acesso ao ensino superior.</p>
-        <a href="https://acessounico.mec.gov.br/" target="_blank">
-            Acessar MEC
-        </a>
-
-        <h3>GitHub Pages</h3>
-        <p>Documentação sobre publicação de sites.</p>
-        <a href="https://pages.github.com/" target="_blank">
-            Conhecer GitHub Pages
-        </a>
-    </div>
-
-    <!-- CRÉDITOS -->
-    <div class="creditos">
-
-        <h2>Desenvolvido por Lucas</h2>
-
-        <p>Projeto educacional — A importância do ENEM.</p>
-
-        <p>Educação é uma oportunidade de transformar o futuro!</p>
-
-        <button class="download" onclick="window.print()">
-            🖨️ Imprimir apresentação
-        </button>
-
-        <button class="mochila" onclick="irMochila()">
-            🎒 Minha Mochila
-        </button>
-
-    </div>
-
+<section class="section" id="cultura">
+ <h2 class="section-title">A presença africana e afro-brasileira no nosso dia a dia</h2>
+ <p class="section-sub">Selecione um tema para conhecer alguns exemplos.</p>
+ <div class="tabs">
+  <button class="tab active" onclick="showTab(0,this)">🎵 Música</button>
+  <button class="tab" onclick="showTab(1,this)">🍲 Culinária</button>
+  <button class="tab" onclick="showTab(2,this)">🥁 Dança</button>
+  <button class="tab" onclick="showTab(3,this)">🎨 Arte e linguagem</button>
+ </div>
+ <div class="card tab-content" id="tabContent">
+  <h3>Música</h3>
+  <p>O samba, o jongo, o maracatu e muitos outros ritmos têm raízes e influências africanas. Essas expressões carregam memória, criatividade e identidade.</p>
+ </div>
 </section>
 
+<section class="section">
+ <div class="callout">
+  <b>Combater o racismo é responsabilidade de todos.</b><br>
+  Respeitar não é apenas não ofender: é reconhecer a dignidade das pessoas, ouvir suas experiências, questionar preconceitos e agir quando presenciar discriminação.
+ </div>
+</section>
+
+<section class="section" id="quiz">
+ <h2 class="section-title">Quiz: o que você aprendeu?</h2>
+ <p class="section-sub">Responda às perguntas e veja seu resultado ao final.</p>
+ <div class="card quiz">
+  <div class="q-count" id="qCount">PERGUNTA 1 DE 5</div>
+  <div class="question" id="question">Por que o Dia da Consciência Negra é lembrado em 20 de novembro?</div>
+  <div class="answers" id="answers"></div>
+  <div class="feedback" id="feedback" aria-live="polite"></div>
+  <button class="btn" id="next" style="display:none" onclick="nextQuestion()">Próxima pergunta →</button>
+  <div class="progress"><span id="progress"></span></div>
+ </div>
+</section>
 </main>
 
 <footer>
-    <p>ENEM 2026 — Educação transforma vidas.</p>
-    <p>Projeto educacional desenvolvido por Lucas.</p>
-    <p>Informações: INEP / Ministério da Educação.</p>
+ <b>Consciência Negra — História, cultura, respeito e igualdade.</b><br>
+ <span class="small">Material educativo para estudo e reflexão. Aprender história ajuda a construir um futuro mais justo.</span>
 </footer>
 
 <script>
+const tabs=[
+ ['Música','O samba, o jongo, o maracatu e muitos outros ritmos têm raízes e influências africanas. Essas expressões carregam memória, criatividade e identidade.'],
+ ['Culinária','Pratos e ingredientes como acarajé, vatapá, quiabo e diferentes preparos com azeite de dendê mostram a presença de conhecimentos culinários africanos na cultura brasileira.'],
+ ['Dança','A capoeira combina luta, música, jogo e expressão cultural. O jongo e outras manifestações tradicionais também preservam memórias e conhecimentos afro-brasileiros.'],
+ ['Arte e linguagem','Artistas, escritores e criadores negros ampliam as formas de contar a história do país. Muitas palavras, estilos, técnicas e expressões do português brasileiro têm influências africanas.']
+];
 
-/* ENTRAR NO SITE */
-function entrarSite() {
-    const intro = document.getElementById("intro");
-
-    intro.classList.add("saindo");
-    document.body.classList.add("started");
-
-    setTimeout(() => {
-        intro.remove();
-    }, 1000);
+function showTab(i,btn){
+ document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+ btn.classList.add('active');
+ document.getElementById('tabContent').innerHTML='<h3>'+tabs[i][0]+'</h3><p>'+tabs[i][1]+'</p>';
 }
 
-/* MINHA MOCHILA */
-function irMochila() {
-    window.open(
-        "https://lucas9628290-svg.github.io/lucas-gabriel-laurindo-escolate/",
-        "_blank"
-    );
+const qs=[
+ {q:'Por que o Dia da Consciência Negra é lembrado em 20 de novembro?',a:['Pela data da morte de Zumbi dos Palmares','Pela assinatura da Lei Áurea','Pelo início da República'],c:0,why:'20 de novembro marca a morte de Zumbi dos Palmares, em 1695.'},
+ {q:'O que eram os quilombos?',a:['Fábricas do período colonial','Comunidades de resistência à escravidão','Escolas militares'],c:1,why:'Quilombos eram comunidades formadas por pessoas que resistiam à escravidão e buscavam liberdade.'},
+ {q:'Qual é um objetivo da Consciência Negra?',a:['Apagar parte da história','Valorizar a cultura e combater o racismo','Separar as pessoas'],c:1,why:'A data incentiva o conhecimento histórico, a valorização cultural e o combate ao racismo.'},
+ {q:'Quem escreveu Quarto de Despejo?',a:['Carolina Maria de Jesus','Sônia Guimarães','Antonieta de Barros'],c:0,why:'Carolina Maria de Jesus foi uma escritora brasileira, autora de Quarto de Despejo.'},
+ {q:'O que podemos fazer no cotidiano?',a:['Ignorar o preconceito','Repetir estereótipos','Respeitar as diferenças e enfrentar atitudes racistas'],c:2,why:'O respeito e a ação contra a discriminação são responsabilidades de todos.'}
+];
+
+let qi=0,score=0,locked=false;
+
+function renderQ(){
+ locked=false;
+ const q=qs[qi];
+ document.getElementById('qCount').textContent=`PERGUNTA ${qi+1} DE ${qs.length}`;
+ document.getElementById('question').textContent=q.q;
+ document.getElementById('feedback').textContent='';
+ document.getElementById('next').style.display='none';
+ document.getElementById('answers').innerHTML=q.a.map((v,i)=>`<button class="answer" onclick="choose(${i})">${String.fromCharCode(65+i)}) ${v}</button>`).join('');
+ document.getElementById('progress').style.width=(qi/qs.length*100)+'%';
 }
 
-/* BAIXAR O SITE */
-function baixarSite() {
-    const arquivo = new Blob(
-        ["<!DOCTYPE html>\n" + document.documentElement.outerHTML],
-        {type: "text/html;charset=utf-8"}
-    );
-
-    const url = URL.createObjectURL(arquivo);
-    const link = document.createElement("a");
-
-    link.href = url;
-    link.download = "site-importancia-do-enem.html";
-    link.click();
-
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
+function choose(i){
+ if(locked)return;
+ locked=true;
+ const q=qs[qi];
+ const ok=i===q.c;
+ if(ok)score++;
+ document.querySelectorAll('.answer').forEach(b=>b.disabled=true);
+ document.getElementById('feedback').textContent=(ok?'✅ Muito bem! ':'💡 Boa tentativa! ')+q.why;
+ document.getElementById('next').style.display='inline-block';
+ document.getElementById('next').textContent=qi===qs.length-1?'Ver resultado':'Próxima pergunta →';
 }
 
-/* SALVAR CONTEÚDO */
-function salvarConteudo() {
-    const conteudo = `
-IMPORTÂNCIA DO ENEM
-
-OBJETIVO:
-Informar estudantes sobre o ENEM.
-
-OPORTUNIDADES:
-- SISU
-- PROUNI
-- FIES
-- Universidades portuguesas participantes
-
-DICAS:
-- Organizar os estudos.
-- Praticar redação.
-- Resolver exercícios.
-- Revisar conteúdos.
-
-TECNOLOGIAS:
-- HTML
-- CSS
-- JavaScript
-- GitHub Pages
-
-DESENVOLVIDO POR LUCAS.
-`;
-
-    const arquivo = new Blob(
-        [conteudo],
-        {type: "text/plain;charset=utf-8"}
-    );
-
-    const url = URL.createObjectURL(arquivo);
-    const link = document.createElement("a");
-
-    link.href = url;
-    link.download = "conteudo-sobre-o-enem.txt";
-    link.click();
-
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
+function nextQuestion(){
+ if(qi<qs.length-1){
+  qi++;
+  renderQ();
+  return;
+ }
+ const grade=score*2;
+ let msg=score===5?'Excelente! Você demonstrou ótimo conhecimento sobre o tema.':score>=3?'Muito bom! Continue estudando e ampliando seus conhecimentos.':'Você pode melhorar! Revise o conteúdo e tente novamente. Aprender é um processo.';
+ document.getElementById('qCount').textContent='RESULTADO FINAL';
+ document.getElementById('question').textContent=`Você acertou ${score} de ${qs.length} — Nota ${grade}/10`;
+ document.getElementById('answers').innerHTML=`<p>${msg}</p><button class="btn" onclick="restartQuiz()">Refazer quiz</button>`;
+ document.getElementById('feedback').textContent='Continue aprendendo, questionando preconceitos e valorizando a diversidade.';
+ document.getElementById('next').style.display='none';
+ document.getElementById('progress').style.width='100%';
 }
 
-/* GERAR QR CODE */
-function atualizarQR() {
-    const endereco = window.location.href;
-
-    const imagem = document.getElementById("qrCode");
-
-    imagem.src =
-        "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data="
-        + encodeURIComponent(endereco);
-
-    document.getElementById("enderecoSite").textContent = endereco;
+function restartQuiz(){
+ qi=0;
+ score=0;
+ renderQ();
 }
 
-/* BAIXAR QR CODE */
-async function baixarQR() {
-    try {
-        const imagem = document.getElementById("qrCode");
-
-        const resposta = await fetch(imagem.src);
-
-        if (!resposta.ok) {
-            throw new Error("Não foi possível obter o QR Code.");
-        }
-
-        const arquivo = await resposta.blob();
-        const url = URL.createObjectURL(arquivo);
-
-        const link = document.createElement("a");
-        link.href = url;
-        link.download = "QR-Code-ENEM.png";
-        link.click();
-
-        setTimeout(() => URL.revokeObjectURL(url), 1000);
-
-    } catch (erro) {
-        alert("Não foi possível baixar. Verifique sua conexão e tente novamente.");
-    }
-}
-
-/* INICIALIZAR */
-atualizarQR();
-
+renderQ();
 </script>
-
 </body>
 </html>
